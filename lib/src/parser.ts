@@ -40,6 +40,8 @@ function createProject(): Project {
     noFallthroughCasesInSwitch: true,
     moduleResolution: ts.ModuleResolutionKind.NodeJs,
     experimentalDecorators: true,
+    esModuleInterop: true,
+    skipLibCheck: true,
     baseUrl: "./",
     paths: {
       "@airtasker/spot": [path.join(__dirname, "../lib")]
