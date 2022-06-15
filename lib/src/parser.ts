@@ -64,9 +64,12 @@ function validateProject(project: Project): void {
       diagnostics
         .map(diagnostic => {
           const message = diagnostic.getMessageText();
-          return typeof message === "string"
+          const filePath = diagnostic.getSourceFile()?.getFilePath();
+          const line = diagnostic.getLineNumber();
+          const messageText = typeof message === "string"
             ? message
             : message.getMessageText();
+          return `${filePath}:${line}  ${messageText}`;
         })
         .join("\n")
     );
